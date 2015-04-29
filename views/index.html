@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block title %}主页{% endblock %}
+
+{% block content %}
+<h1>{{title}}</h1>
+
+<p>请<a href="/signUp">注册</a></p>
+
+<form method="post" action="/postWeibo">
+
+    <div class="form-group">
+        <label for="weibo_content"><span>XX</span>说：</label>
+        <input id="weibo_content" class="form-control" type="text" name="weiboConent" value="" placeholder="请输入微博的内容"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary">提交</button>
+</form>
+{% endblock %}

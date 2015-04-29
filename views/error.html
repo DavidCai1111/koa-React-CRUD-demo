@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block title %}出错啦{% endblock %}
+
+{% block content %}
+
+<h1>{{message}}</h1>
+<h2>{{error.status}}</h2>
+<pre>{{error.stack}}</pre>
+
+{% endblock %}
