@@ -5,6 +5,7 @@ var app = koa();
 var logger = require('koa-logger');
 var session = require('koa-session');
 var views = require('koa-views');
+var mongoose = require('mongoose');
 
 app.keys = ['koa simple weibo'];
 app.use(session(app));
