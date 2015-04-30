@@ -1,6 +1,10 @@
+var config = require('../config');
+
 exports.showIndexPage = function *() {
-  this.session.info = 'ahaha';
+
   yield this.render('index', {
-    title: 'koa weibo'
+    title: config.appName,
+    user: this.session.username ? this.session.username : undefined
   });
+
 };

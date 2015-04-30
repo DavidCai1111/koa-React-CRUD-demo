@@ -1,16 +1,24 @@
 var models = require('../models');
 var User = models.User;
-var co = require('co');
 
-exports.insertUser = function (username) {
+exports.insertUser = function (userToInsert) {
 
-  return new Promise(function (resovle,reject) {
-    User.create({username: username, password: 'test'}, function (err, user) {
-      if(err) return reject(err);
+  return new Promise(function (resolve, reject) {
+    User.create(userToInsert, function (err, user) {
+      if (err) return reject(err);
 
-      resovle(user);
+      resolve(user);
     });
   });
-
 };
 
+exports.findUser = function (username, password) {
+
+  return new Promise(function (resolve, reject) {
+    User.findOne({username: username, password: password}, function (err, user) {
+      if (err) return reject(err);
+
+      resolve(user);
+    });
+  });
+};
