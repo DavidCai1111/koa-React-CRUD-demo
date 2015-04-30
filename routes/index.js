@@ -4,7 +4,8 @@ exports.showIndexPage = function *() {
 
   yield this.render('index', {
     title: config.appName,
-    user: this.session.username ? this.session.username : undefined
+    user: this.session.user ? this.session.user : null,
+    info : this.flash.info
   });
 
 };

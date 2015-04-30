@@ -1,17 +1,24 @@
-var router = require('koa-route');
+var router = require('koa-router')();
 var indexRoute = require('./routes/index');
 var authRoute = require('./routes/auth');
-var passport = require('koa-passport');
+var authService = require('./services/auth');
 
-module.exports = function (app) {
-  //主页
-  app.use(router.get('/', indexRoute.showIndexPage));
-  //进入注册页
-  app.use(router.get('/signUp', authRoute.showSignUpPage));
-  //注册
-  app.use(router.post('/signUp', authRoute.doSignUp));
-  //进入登陆页
-  app.use(router.get('/login', authRoute.showLoginPage));
-  //登陆
-  app.use(router.post('/login', authRoute.doLogin));
-};
+//主页
+router.get('/', indexRoute.showIndexPage);
+//进入注册页
+router.get('/signUp', authService.checkNotLogin, authRoute.showSignUpPage);
+//注册
+router.post('/signUp', authService.checkNotLogin, authRoute.doSignUp);
+
+//进入登陆页
+router.get('/login', authService.checkNotLogin, authRoute.showLoginPage);
+
+//登陆
+router.post('/login', authService.checkNotLogin, authRoute.doLogin);
+
+//登出
+router.get('/logout', authService.checkLogin, authRoute.doLogout);
+
+module.exports = router;
+
+

@@ -7,9 +7,8 @@ var session = require('koa-generic-session');
 var mongoStore = require('koa-generic-session-mongo');
 var views = require('koa-views');
 var bodyParser = require('koa-bodyparser');
-var passport = require('koa-passport');
-var LocalStrategy = require('passport-local').Strategy;
-var StrategyService = require('./services/strategy');
+var flash = require('koa-flash');
+var router = require('koa-router');
 
 app.keys = [config.appName];
 
@@ -18,27 +17,15 @@ app.use(session({
     db: config.db.name
   })
 }));
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.serializeUser(function (user, done) {
-  done(null, user);
-});
-passport.deserializeUser(function (user, done) {
-  done(null, user);
-});
-passport.use(new LocalStrategy(StrategyService.localStrategy));
-
 app.use(bodyParser());
+app.use(flash());
 app.use(logger());
 app.use(require('koa-static')(path.join(__dirname, 'public')));
 app.use(views(path.join(__dirname, 'views'), {
   map: {html: 'swig'}
 }));
-
-//路由
-require('./web_route')(app);
+app.use(require('./web_route').routes());
 
 app.listen(config.port);
 
-console.log('listening on port %s , god bless %s...', config.port, config.appName);
+console.log('listening on port %d , god bless %s...', config.port, config.appName);
