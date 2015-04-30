@@ -3,7 +3,7 @@ var User = models.User;
 
 exports.insertUser = function *(userToInsert) {
 
-  return User.create(userToInsert);
+  return yield User.create(userToInsert);
 };
 
 exports.findUser = function *(username, password) {

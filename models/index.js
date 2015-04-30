@@ -9,3 +9,4 @@ mongoose.connect(config.db.url, function (err) {
 });
 
 exports.User = require('./user');
+exports.Weibo = require('./weibo');
