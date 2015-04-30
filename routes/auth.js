@@ -13,9 +13,16 @@ exports.showSignUpPage = function *() {
 exports.doSignUp = function *() {
   var _user = this.request.body;
 
-  yield userService.insertUser(_user);
-
-  this.response.redirect('/');
+  if (yield userService.validateUsername(_user.username)) {
+    this.flash = {info: '用户名已被占用'};
+    this.response.redirect('/signUp');
+  } else {
+    yield userService.insertUser(_user);
+    this.session.user = {
+      username: _user.username
+    };
+    this.response.redirect('/');
+  }
 };
 
 exports.showLoginPage = function *() {
@@ -37,7 +44,7 @@ exports.doLogin = function *() {
     };
     this.response.redirect('/');
   } else {
-    this.flash = {info : '用户名或密码错误'};
+    this.flash = {info: '用户名或密码错误'};
     this.response.redirect('/login');
   }
 };

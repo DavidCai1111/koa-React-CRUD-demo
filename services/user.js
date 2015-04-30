@@ -1,24 +1,17 @@
 var models = require('../models');
 var User = models.User;
 
-exports.insertUser = function (userToInsert) {
+exports.insertUser = function *(userToInsert) {
 
-  return new Promise(function (resolve, reject) {
-    User.create(userToInsert, function (err, user) {
-      if (err) return reject(err);
-
-      resolve(user);
-    });
-  });
+  return User.create(userToInsert);
 };
 
-exports.findUser = function (username, password) {
+exports.findUser = function *(username, password) {
 
-  return new Promise(function (resolve, reject) {
-    User.findOne({username: username, password: password}, function (err, user) {
-      if (err) return reject(err);
+  return yield User.findOne({username: username, password: password}).exec();
+};
 
-      resolve(user);
-    });
-  });
+exports.validateUsername = function *(username) {
+
+  return yield User.findOne({username: username}).exec();
 };

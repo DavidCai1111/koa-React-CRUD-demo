@@ -8,7 +8,6 @@ var mongoStore = require('koa-generic-session-mongo');
 var views = require('koa-views');
 var bodyParser = require('koa-bodyparser');
 var flash = require('koa-flash');
-var router = require('koa-router');
 
 app.keys = [config.appName];
 
