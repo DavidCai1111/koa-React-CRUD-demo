@@ -28,3 +28,5 @@ app.use(require('./web_route').routes());
 app.listen(config.port);
 
 console.log('listening on port %d , god bless %s...', config.port, config.appName);
+
+module.exports = app;

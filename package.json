@@ -4,9 +4,9 @@
   "description": "koa_simple_weibo",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --harmony"
   },
-  "author": "",
+  "author": "DavidCai",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -26,5 +26,12 @@
     "moment": "^2.10.2",
     "mongoose": "^4.0.2",
     "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "co-mocha": "^1.1.0",
+    "co-supertest": "0.0.8",
+    "mocha": "^2.2.4",
+    "should": "^6.0.1",
+    "supertest": "^0.15.0"
   }
 }
