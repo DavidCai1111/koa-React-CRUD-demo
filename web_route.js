@@ -3,6 +3,7 @@ var dr = require('dir-requirer')(__dirname);
 var routes = dr('./routes');
 var services = dr('./services');
 
+
 //主页
 router.get('/', routes.index.showIndexPage);
 //进入注册页
