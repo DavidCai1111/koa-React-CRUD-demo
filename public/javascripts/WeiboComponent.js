@@ -111,5 +111,5 @@ var WeiboComponent = React.createClass({
         }.bind(ctx)
       });
     });
-  },
+  }
 });
