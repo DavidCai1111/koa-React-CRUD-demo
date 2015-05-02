@@ -4,8 +4,9 @@
 
 {% block content %}
 
-<h1>{{message}}</h1>
-<h2>{{error.status}}</h2>
-<pre>{{error.stack}}</pre>
+<h1>出错啦：{{status}} {{error}}</h1>
+{% if env == 'development' %}
+<pre>{{stack}}</pre>
+{% endif %}
 
 {% endblock %}
