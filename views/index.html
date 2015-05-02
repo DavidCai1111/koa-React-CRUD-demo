@@ -12,21 +12,11 @@
 {% endif %}
 <p class="text-danger">{{info}}</p>
 
-<ul class="list-unstyled">
-    {% for weibo in weibos %}
-    <li>【{{weibo.time}}】{{weibo.author}} 说 ：{{weibo.content}}    <a href="/weibo/delete/{{weibo._id.toString()}}" class="text-danger">删除</a></li>
-    {% endfor %}
-</ul>
-
 {% if user %}
-<form method="post" action="/weibo/add">
-
-    <div class="form-group">
-        <label for="weibo_content"><span>{{user.username}}</span>说：</label>
-        <input id="weibo_content" class="form-control" type="text" name="weiboConent" value="" placeholder="请输入微博的内容"/>
-    </div>
-
-    <button type="submit" class="btn btn-primary">提交</button>
-</form>
+<div id="weiboComponent"></div>
 {% endif %}
+
+<script type="text/jsx">
+  React.render(<WeiboComponent usernameUrl="/user" weiboUrl="weibo"/>, document.getElementById('weiboComponent'));
+</script>
 {% endblock %}

@@ -11,6 +11,7 @@ var flash = require('koa-flash');
 var gzip = require('koa-gzip');
 var error = require('koa-error');
 var staticCache = require('koa-static-cache');
+var json = require('koa-json');
 
 app.keys = [config.appName];
 
@@ -29,6 +30,7 @@ app.use(staticCache(path.join(__dirname,'public'),{
   maxAge : 60 * 60 * 31
 }));
 app.use(require('koa-static')(path.join(__dirname, 'public')));
+app.use(json());
 app.use(views(path.join(__dirname, 'views'), {
   map: {html: 'swig'}
 }));

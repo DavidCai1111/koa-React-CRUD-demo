@@ -49,6 +49,11 @@ exports.doLogin = function *() {
   }
 };
 
+exports.getUsername = function *() {
+
+  yield this.body = {username: (this.session.user ? this.session.user : null)}
+};
+
 exports.doLogout = function *() {
   this.session.user = null;
 

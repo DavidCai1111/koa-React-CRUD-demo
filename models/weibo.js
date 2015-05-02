@@ -14,6 +14,6 @@ WeiboSchema.virtual('time').get(function () {
   return moment(this.createAt).format('YYYY年MM月DD日 hh:mm:ss');
 });
 
-WeiboSchema.set('toObject', {virtuals: true});
+WeiboSchema.set('toJson', {virtuals: true});
 
 module.exports = mongoose.model('Weibo', WeiboSchema);

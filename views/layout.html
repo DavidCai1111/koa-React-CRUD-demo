@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
-    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+  <link rel='stylesheet' href='/stylesheets/style.css'/>
+  <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="/bower_components/react/react.min.js"></script>
+  <script type="text/javascript" src="/bower_components/react/JSXTransformer.js"></script>
 </head>
 <body>
+<script type="text/jsx" src="/javascripts/AuthForm.js"></script>
+<script type="text/jsx" src="/javascripts/WeiboComponent.js"></script>
 {% block content%}{% endblock %}
 </body>
 </html>

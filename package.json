@@ -22,6 +22,7 @@
     "koa-generic-session": "^1.8.0",
     "koa-generic-session-mongo": "^0.1.1",
     "koa-gzip": "^0.1.0",
+    "koa-json": "^1.1.1",
     "koa-logger": "^1.2.2",
     "koa-passport": "^1.1.6",
     "koa-router": "^4.3.2",

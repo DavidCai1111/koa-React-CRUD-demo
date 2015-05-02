@@ -15,10 +15,14 @@ router.get('/login', services.auth.checkNotLogin, routes.auth.showLoginPage);
 router.post('/login', services.auth.checkNotLogin, routes.auth.doLogin);
 //登出
 router.get('/logout', services.auth.checkLogin, routes.auth.doLogout);
+//获取所有微博
+router.get('/weibo' ,services.auth.checkLogin, routes.weibo.getAll);
 //新增一条微博
 router.post('/weibo/add', services.auth.checkLogin, routes.weibo.addNewWeibo);
 //删除一条微博
-router.get('/weibo/delete/:id', services.auth.checkLogin ,routes.weibo.deleteOneWeibo);
+router.get('/weibo/delete/:id', services.auth.checkLogin, routes.weibo.deleteOneWeibo);
+//获取当前用户名
+router.get('/user', services.auth.checkLogin, routes.auth.getUsername);
 
 module.exports = router;
 

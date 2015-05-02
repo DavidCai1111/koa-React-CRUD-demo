@@ -2,18 +2,29 @@ var weiboService = require('../services/weibo');
 
 exports.addNewWeibo = function *() {
   var _weibo = {
-    author : this.session.user.username,
-    content : this.request.body.weiboConent
+    author: this.session.user.username,
+    content: this.request.body.weiboConent
   };
 
-  yield weiboService.addOne(_weibo);
+  var nAdded = yield weiboService.addOne(_weibo);
 
-  this.response.redirect('/');
+  yield this.body = {result : (nAdded !== 0)}
 };
 
 exports.deleteOneWeibo = function *() {
 
-  yield weiboService.deleteOneById(this.params.id);
+  var nRemoved = yield weiboService.deleteOneById(this.params.id);
 
-  this.response.redirect('/');
+  yield this.body = {result : (nRemoved !== 0)}
+};
+
+exports.getAll = function *() {
+  var _weibos = yield weiboService.getAll();
+  var weibos = [];
+
+  _weibos.map(function (weibo) {
+    weibos.push(weibo.toJSON({virtuals: true}));
+  });
+
+  yield this.body = {weibos: weibos};
 };
