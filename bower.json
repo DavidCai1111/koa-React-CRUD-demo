@@ -1,0 +1,26 @@
+{
+  "name": "koa-simple-weibo",
+  "version": "0.0.1",
+  "homepage": "https://github.com/DavidCai1993/koa-simple-weibo",
+  "authors": [
+    "DavidCai <376462191@qq.com>"
+  ],
+  "main": "app.js",
+  "keywords": [
+    "koa",
+    "weibo"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.13.2",
+    "bootstrap" : "latest"
+  }
+}
