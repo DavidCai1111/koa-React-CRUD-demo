@@ -1,8 +1,26 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
+}
+
+.weibo-enter {
+    opacity: 0.01;
+    transition: opacity .5s ease-in;
+}
+
+.weibo-enter.weibo-enter-active {
+    opacity: 1;
+}
+
+.weibo-leave {
+    opacity: 1;
+    transition: opacity .5s ease-in;
+}
+
+.weibo-leave.weibo-leave-active {
+    opacity: 0.01;
 }

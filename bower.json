@@ -20,7 +20,7 @@
     "tests"
   ],
   "dependencies": {
-    "react": "~0.13.2",
-    "bootstrap" : "latest"
+    "react": "latest",
+    "bootstrap": "latest"
   }
 }

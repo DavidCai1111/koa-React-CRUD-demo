@@ -1,3 +1,4 @@
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var WeiboList = React.createClass({
   handleDel: function (e) {
     e.preventDefault();
@@ -34,7 +35,9 @@ var WeiboList = React.createClass({
     }.bind(ctx));
     return (
       <ul className="list-unstyled">
+        <ReactCSSTransitionGroup transitionName="weibo">
         {weiboLists}
+        </ReactCSSTransitionGroup>
       </ul>
     );
   }
