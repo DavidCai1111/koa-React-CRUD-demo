@@ -1,7 +1,7 @@
 {
-  "name": "koa_simple_weibo",
+  "name": "koa-React-CRUD-demo",
   "version": "1.0.0",
-  "description": "koa_simple_weibo",
+  "description": "koa-React-CRUD-demo",
   "main": "app.js",
   "scripts": {
     "test": "mocha --harmony"

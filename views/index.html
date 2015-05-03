@@ -14,9 +14,10 @@
 
 {% if user %}
 <div id="weiboComponent"></div>
-{% endif %}
 
 <script type="text/jsx">
   React.render(<WeiboComponent usernameUrl="/user" weiboUrl="weibo"/>, document.getElementById('weiboComponent'));
 </script>
+{% endif %}
+
 {% endblock %}
