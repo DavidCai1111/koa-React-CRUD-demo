@@ -23,6 +23,7 @@ app.use(session({
 app.use(error({
   template: './views/error.html'
 }));
+
 app.use(bodyParser());
 app.use(flash());
 app.use(logger());
