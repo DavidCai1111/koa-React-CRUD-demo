@@ -26,7 +26,6 @@ app.use(error({
 app.use(bodyParser());
 app.use(flash());
 app.use(logger());
-
 app.use(staticCache(path.join(__dirname,'public'),{
   maxAge : 60 * 60 * 31
 }));
