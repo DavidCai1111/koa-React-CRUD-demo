@@ -19,7 +19,7 @@ var WeiboList = React.createClass({
       }.bind(this)
     });
   },
-  render : function () {
+  render: function () {
     var ctx = this;
     var weiboLists = this.props.weibos.map(function (weibo) {
       return (
@@ -27,7 +27,7 @@ var WeiboList = React.createClass({
           <li>
             【{weibo.time}】{weibo.author} 说 ：{weibo.content}
             <a href={"/weibo/delete/" + weibo._id}
-               className="text-danger del" onClick={this.handleDel}>  删除
+               className="text-danger del" onClick={this.handleDel}> 删除
             </a>
           </li>
         </div>
@@ -36,7 +36,7 @@ var WeiboList = React.createClass({
     return (
       <ul className="list-unstyled">
         <ReactCSSTransitionGroup transitionName="weibo">
-        {weiboLists}
+          {weiboLists}
         </ReactCSSTransitionGroup>
       </ul>
     );
